@@ -21,6 +21,12 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
+  //TODO: just for learning, later will delete the code
+  @Get('tasks')
+  getUsers() {
+    return this.usersService.getTasks();
+  }
+
   @Get(':id')
   get(@Param('id', ParseIntPipe) id: number) {
     return this.usersService.findOne(id);
