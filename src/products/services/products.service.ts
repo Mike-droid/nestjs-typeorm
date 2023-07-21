@@ -24,8 +24,8 @@ export class ProductsService {
   }
 
   async create(data: CreateProductDto) {
-    const newProduct = await this.productRepo.create(data);
-    return this.productRepo.save(newProduct);
+    const newProduct = this.productRepo.create(data);
+    return await this.productRepo.save(newProduct);
   }
 
   async update(id: number, changes: UpdateProductDto) {
