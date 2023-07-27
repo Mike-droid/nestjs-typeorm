@@ -31,6 +31,6 @@ export class User {
   updatedAt: Date;
 
   @OneToOne(() => Customer, (customer) => customer.user, { nullable: true })
-  @JoinColumn() //* solo debe ir en una tabla
+  @JoinColumn({ name: 'customer_id' }) //* solo debe ir en una tabla
   customer: Customer;
 }
