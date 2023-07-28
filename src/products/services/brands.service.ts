@@ -15,6 +15,7 @@ export class BrandsService {
 
   async findOne(id: number) {
     const product = await this.brandRepo.findOne({
+      where: { id },
       relations: ['products'],
     });
     if (!product) {
@@ -29,7 +30,7 @@ export class BrandsService {
   }
 
   async update(id: number, changes: UpdateBrandDto) {
-    const brand = await this.brandRepo.findOne(id);
+    const brand = await this.brandRepo.findOne({ where: { id } });
     this.brandRepo.merge(brand, changes);
     return this.brandRepo.save(brand);
   }
